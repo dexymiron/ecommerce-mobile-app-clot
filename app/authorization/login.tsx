@@ -7,6 +7,7 @@ import Button from "@/components/ui/Buttons/Button";
 import ThemedIcon from "@/components/ThemedIcon";
 import GoogleIcon from "@/components/svg/GoogleIcon";
 import FacebookIcon from "@/components/svg/FacebookIcon";
+import { ROUTES } from "@/constants/Routes";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -19,14 +20,23 @@ const LoginPage = () => {
 
         <ThemedView style={styles.containerTop}>
           <Input text={"Username"} type="auth" maxLength={25} />
-          <Button title={"Continue"} type="auth">
+          <Button
+            title={"Continue"}
+            type="auth"
+            pressAction={() => router.replace(ROUTES.PASSWORD_PAGE)}
+          >
             <ThemedText type="forButton" lightColor="#fff">
               Continue
             </ThemedText>
           </Button>
           <ThemedView style={styles.containerText}>
             <ThemedText type="question">Dont have an Account ?</ThemedText>
-            <ThemedText type="link">Create One</ThemedText>
+            <ThemedText
+              type="link"
+              onPress={() => router.push(ROUTES.CREATE_ACCOUNT_PAGE)}
+            >
+              Create One
+            </ThemedText>
           </ThemedView>
         </ThemedView>
 

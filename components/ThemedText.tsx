@@ -23,6 +23,7 @@ export function ThemedText({
         type === "question" ? styles.question : undefined,
         type === "link" ? styles.link : undefined,
         type === "forButton" ? styles.forButton : undefined,
+        type === "sendEmail" ? styles.sendEmail : undefined,
         style,
       ]}
       {...rest}
@@ -66,5 +67,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 26.73,
     letterSpacing: -0.5,
+  },
+  sendEmail: {
+    fontFamily: Fonts.CircularStd500,
+    fontSize: 24,
+    lineHeight: 30.36,
+    textAlign: "center",
   },
 });
