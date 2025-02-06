@@ -1,31 +1,28 @@
-import { Text, type TextProps, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from "react-native";
 
-import { useThemeColor } from '@/hooks/useThemeColor';
-
-export type ThemedTextProps = TextProps & {
-  lightColor?: string;
-  darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
-};
+import { useThemeColor } from "@/hooks/useThemeColor";
+import { Fonts } from "@/constants/Fonts";
+import { ThemedTextProps } from "@/constants/Types";
 
 export function ThemedText({
   style,
   lightColor,
   darkColor,
-  type = 'default',
+  type = "default",
   ...rest
 }: ThemedTextProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+  const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
 
   return (
     <Text
       style={[
         { color },
-        type === 'default' ? styles.default : undefined,
-        type === 'title' ? styles.title : undefined,
-        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
-        type === 'subtitle' ? styles.subtitle : undefined,
-        type === 'link' ? styles.link : undefined,
+        type === "default" ? styles.default : undefined,
+        type === "title" ? styles.title : undefined,
+        type === "subtitle" ? styles.subtitle : undefined,
+        type === "question" ? styles.question : undefined,
+        type === "link" ? styles.link : undefined,
+        type === "forButton" ? styles.forButton : undefined,
         style,
       ]}
       {...rest}
@@ -37,24 +34,37 @@ const styles = StyleSheet.create({
   default: {
     fontSize: 16,
     lineHeight: 24,
-  },
-  defaultSemiBold: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '600',
+    fontFamily: Fonts.CircularStd400,
   },
   title: {
     fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 32,
+    fontFamily: Fonts.CircularStd700,
+    lineHeight: 34.5,
+    letterSpacing: -0.41,
   },
-  subtitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  question: {
+    fontSize: 12,
+    fontFamily: Fonts.CircularStd400,
+    lineHeight: 15.18,
+    letterSpacing: -0.41,
+    alignItems: "center",
   },
   link: {
-    lineHeight: 30,
+    fontSize: 12,
+    fontFamily: Fonts.CircularStd700,
+    lineHeight: 15.18,
+    letterSpacing: -0.41,
+    alignItems: "center",
+  },
+  subtitle: {
+    fontSize: 24,
+    fontFamily: Fonts.GabaritoBold,
+    lineHeight: 28.8,
+  },
+  forButton: {
+    fontFamily: Fonts.CircularStd500,
     fontSize: 16,
-    color: '#0a7ea4',
+    lineHeight: 26.73,
+    letterSpacing: -0.5,
   },
 });
