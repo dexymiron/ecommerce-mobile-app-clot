@@ -9,7 +9,7 @@ export type ButtonProps = PressableProps & {
     lightColor?: string;
     darkColor?: string;
     title: string;
-    type?: "auth" | "forIcon";
+    type?: "auth" | "forIcon" | "halfWidth" | "round";
     pressAction?: any;
 };
 
@@ -26,13 +26,13 @@ export type ThemedIconProps = {
     size?: number;
     color?: string;
     type?: keyof typeof ICON_SETS;
-    style?: "forButton";
+    style?: "forButton" | "forRoundButton";
 };
 
 export type ThemedTextProps = TextProps & {
     lightColor?: string;
     darkColor?: string;
-    type?: "default" | "title" | "subtitle" | "question" | "link" | "forButton";
+    type?: "default" | "title" | "subtitle" | "question" | "link" | "forButton" | "sendEmail";
 };
 
 export type ThemedViewProps = ViewProps & {

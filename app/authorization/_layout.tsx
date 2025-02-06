@@ -13,6 +13,13 @@ export default function AuthLayout() {
       <ThemedView style={[styles.container, { backgroundColor: background }]}>
         <Stack>
           <Stack.Screen name="login" options={{ headerShown: false }} />
+          <Stack.Screen name="password" options={{ headerShown: false }} />
+          <Stack.Screen name="createAccount" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="forgotPassword"
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen name="sendEmail" options={{ headerShown: false }} />
         </Stack>
       </ThemedView>
     </SafeAreaView>

@@ -20,6 +20,8 @@ const Button = ({
         { backgroundColor },
         type === "auth" ? styles.auth : undefined,
         type === "forIcon" ? styles.forIcon : undefined,
+        type === "halfWidth" ? styles.halfWidth : undefined,
+        type === "round" ? styles.round : undefined,
       ]}
       {...rest}
       onPress={pressAction}
@@ -42,5 +44,24 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
+  },
+  halfWidth: {
+    borderRadius: 100,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    maxWidth: 160,
+    width: "100%",
+  },
+  round: {
+    borderRadius: 100,
+    height: 40,
+    width: 40,
+    position: "absolute",
+    top: -130,
+    left: 0,
+    zIndex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
